@@ -126,8 +126,6 @@ int main() {
   glCullFace(GL_BACK);
   glFrontFace(GL_CW);
 
-  glUniform1i(glGetUniformLocation(shader_program, "texture_0"), 0);
-  glUniform1i(glGetUniformLocation(shader_program, "texture_1"), 1);
 
   while (!glfwWindowShouldClose(window)) {
     double curr_s = glfwGetTime();
@@ -156,6 +154,8 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUseProgram(shader_program);
+    glUniform1i(glGetUniformLocation(shader_program, "texture_0"), 0);
+    glUniform1i(glGetUniformLocation(shader_program, "texture_1"), 1);
     // glUniform1f(time_loc, (float)curr_s);
     glBindVertexArray(vao);
     glEnableVertexAttribArray(0);
